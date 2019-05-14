@@ -19,12 +19,12 @@ namespace itertools
 				};
         
         
-		iterator start() 
+		iterator begin() 
     {
 			return NULL;
 		}
 			
-		iterator stop()
+		iterator end()
     {
 			return NULL;
 		}
