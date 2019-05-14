@@ -6,12 +6,12 @@ namespace itertools
     class range
     {
         private:
-        T _start;
-        T _end;
+        T bigenN;
+        T endD;
 
         public:
        ~range(){}
-        range(T _sta, T _finish) : _start(_sta), _end(_finish) 
+        range(T _bigen, T _end) : bigenN(_bigen), endD(_end) 
 	{//It can be assumed that
 	}
 
@@ -19,40 +19,45 @@ namespace itertools
         class iterator
         {
             private:
-            T data;
+            T index;
 
             public:
-            iterator(T ptr) : data(ptr) {
-
+            iterator(T temp) : index(temp)
+	    {
             }
 
-            T operator*() const {
-			    return data;
+            T operator*() const
+	    {
+	      return index;
             }
 
-            iterator& operator++() {
-                ++data;
-			    return *this;
+            iterator& operator++()
+	    {
+              ++index;
+	      return *this;
             }
 
-		    bool operator==(const iterator& rhs) const {
-			    return (data == rhs.data);
-		    }
-
-		    bool operator!=(const iterator& rhs) const {
-			    return (data != rhs.data);
+            bool operator!=(const iterator& our) const
+	    {
+	       return (index != our.index);
             }
+		
+	    bool operator==(const iterator& our) const
+	    {
+	       return (index == our.index);
+	    }
         };
 
         public:
 
-        iterator begin() {
-		    return iterator(_start);
-	    }
-	
-	    iterator end() {
-		    return iterator(_end);
+        iterator begin() 
+	{
+	   return iterator(bigenN);
         }
-
+	
+	iterator end()
+	{
+	   return iterator(endD);
+        }
     };
 }
