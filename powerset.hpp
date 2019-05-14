@@ -1,59 +1,57 @@
 #pragma once
-
 namespace itertools
 {
     template <typename T>
     class powerset
-    {//Represents all subgroups of iterable.
-	    
+    {
         private:
-        T bigenN;
+        T _start;
 
         public:
-        powerset(T _bigen) : bigenN(_bigen) 
-	{
+
+        powerset(T _sta) : _start(_sta) {
+
         }
         
-        template <typename X>
+        template <typename P>
         class iterator
         {
           private:
-            X firstIndex;
-            X lastIndex;
+            P data1;
+            P data2;
 
             public:
-            iterator(X iter1, X iter2) : firstIndex(iter1), lastIndex(iter2)
-	    {
+            iterator(P ptr1, P ptr2) : data1(ptr1), data2(ptr2) {
+
             }
 
-            std::pair<decltype(*firstIndex),decltype(*lastIndex)> operator*() const
-	    {
-             return  std::pair<decltype(*firstIndex),decltype(*lastIndex)> (*firstIndex , *lastIndex);
+            std::pair<decltype(*data1),decltype(*data2)> operator*() const {
+
+             return  std::pair<decltype(*data1),decltype(*data2)> (*data1 , *data2);
+            
             }
 
-            iterator<P>& operator++() 
-	    {
-	      return *this;
+            iterator<P>& operator++() {
+
+			    return *this;
             }
 
-           bool operator==(iterator<X> it) const
-	   {
-	      return false;
-	   }
+		    bool operator==(iterator<P> it) const {
+			    return false;
+		    }
 
-           bool operator!=(iterator<X> it) const
-	   {
-	      return false;
-           }
+		    bool operator!=(iterator<P> it) const {
+			    return false;
+            }
         };
 
         public:
 
         auto begin() { 
-            return iterator<decltype(bigenN.begin())> (bigenN.begin(), bigenN.end()); 
+            return iterator<decltype(_start.begin())> (_start.begin(), _start.end()); 
         } 
         auto end()  { 
-            return iterator<decltype(bigenN.begin())>(bigenN.end(), bigenN.end());
+            return iterator<decltype(_start.begin())>(_start.end(), _start.end());
         } 
 
     };
