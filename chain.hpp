@@ -8,16 +8,15 @@ namespace itertools
 	  template<typename T1, typename T2>
    	class chain
     {//Represents a concatenation of two iterable.
-
+        private:
+	    	T1 a;
+	    	T2 b;
       	public:
 	     	chain<T1,T2>( T1 x,  T2 y) //x:first iterable , y:secound iterable
 		   	: a(x),
 			  b(y) {}
         
-        private:
-	    	T1 a;
-	    	T2 b;
-		
+   
 
 	 	class iterator
     {
