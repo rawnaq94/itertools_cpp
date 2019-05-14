@@ -5,14 +5,12 @@ namespace itertools
 
 	template<typename T1, typename T2> class product
   {//Represents a cartesian product of two iterable
-
-		public:
-			product<T1,T2>(const T1 x, const T2 y) : a(x) , b(y){}
-		private:
+                private:
 			T1 a;
 			T2 b;
+		public:
+			product<T1,T2>(const T1 x, const T2 y) : a(x) , b(y){}
 		
-    
     class iterator {
 
 			public:
