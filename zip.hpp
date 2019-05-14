@@ -3,14 +3,14 @@
 namespace itertools
 {
 	template<typename T1, typename T2> class zip
-  {
-		
-		public:
-			zip<T1,T2>(const T1 x, const T2 y) : a(x),b(y){}
+  {//It can be assumed that they are the same length
 		private:
 			T1 a;
 			T2 b;
 	
+		public:
+			zip<T1,T2>(const T1 x, const T2 y) : a(x),b(y){}
+		
   
 			class iterator
       {
