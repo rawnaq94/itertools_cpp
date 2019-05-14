@@ -1,6 +1,7 @@
 #pragma once
+
 namespace itertools
-{
+{//Represents a range of objects.
     template <typename T>
     class range
     {
@@ -9,14 +10,11 @@ namespace itertools
         T _end;
 
         public:
+       ~range(){}
+        range(T _sta, T _finish) : _start(_sta), _end(_finish) 
+	{//It can be assumed that
+	}
 
-        range(T _sta, T _finish) : _start(_sta), _end(_finish) {
-
-        }
-
-        ~range(){
-
-        }
 
         class iterator
         {
