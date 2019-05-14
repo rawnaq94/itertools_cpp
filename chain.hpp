@@ -74,14 +74,14 @@ namespace itertools
 
 
 
-         typename chain<T1,T2>::  iterator start()
+         typename chain<T1,T2>::  iterator begin()
          {
-		   	 return chain<T1,T2>::iterator(a.start(), a.stop(), b.start());
+		   	 return chain<T1,T2>::iterator(a.begin(), a.end(), b.begin());
 	       }
 			
-    		typename chain<T1,T2>::  iterator stop()
+    		typename chain<T1,T2>::  iterator end()
         {
-			  return chain<T1,T2>::iterator(a.stop(), a.stop(), b.stop());
+			  return chain<T1,T2>::iterator(a.end(), a.end(), b.end());
 	      }
 
 	};
