@@ -3,7 +3,7 @@ namespace itertools
 {
     template <typename T1, typename T2>
     class product 
-    {
+    {//Represents a Cartesian product of iterable.
         private:
         T1 firstIt;
         T2 lastIt;
