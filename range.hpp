@@ -4,14 +4,15 @@
 namespace itertools {
 	template<typename T> class range 
 	{//Represents a range of objects.
+	private: // It can be assumed that a<b.
+			T a;
+			T b;
+      
    	public:
 			range<T>(const T x, const T y) : a(x) , b(y) {}
 			range<T> (const range& other) : a(other.a), b(other.b) {}
 		
-		private: // It can be assumed that a<b.
-			T a;
-			T b;
-      
+		
       
 				class iterator 
         {//Running in a loop
