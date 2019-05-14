@@ -16,15 +16,15 @@ namespace itertools
         }
 
 	    
-        template <typename x, typename y>
+        template <typename X, typename Y>
         class iterator
         {
           private:
-            x firstIndex;
-            y lastIndex;
+            X firstIndex;
+            Y lastIndex;
 
             public:
-            iterator(x iter1,y iter2) : firstIndex(iter1), lastIndex(iter2)
+            iterator(X iter1,Y iter2) : firstIndex(iter1), lastIndex(iter2)
 	    {
             }
 
@@ -38,12 +38,12 @@ namespace itertools
                return *this;
             }
 
-            bool operator==(iterator<x,y> it) const
+            bool operator==(iterator<X,Y> it) const
 	    {
 	       return false;
             }
 
-	    bool operator!=(iterator<x,y> it) const
+	    bool operator!=(iterator<X,Y> it) const
 	    {
 	       return false;
             }
