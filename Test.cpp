@@ -1,11 +1,12 @@
+    
 #include <iostream>
-#include "range.hpp"
-#include "chain.hpp"
-#include "zip.hpp"
-#include "product.hpp"
-#include "powerset.hpp"
-#include "badkan.hpp"
 using namespace std;
+#include "badkan.hpp"
+#include "chain.hpp"
+#include "powerset.hpp"
+#include "product.hpp"
+#include "range.hpp"
+#include "zip.hpp"
 using namespace itertools;
 
 int main()
