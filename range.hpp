@@ -1,76 +1,60 @@
 #pragma once
- 
-
-namespace itertools {
-	template<typename T> class range 
-	{//Represents a range of objects.
-	private: // It can be assumed that a<b.
-			T a;
-			T b;
-      
-   	public:
-			range<T>(const T x, const T y) : a(x) , b(y) {}
-			range<T> (const range& other) : a(other.a), b(other.b) {}
-		
-		
-      
-				class iterator 
-        {//Running in a loop
-					private:
-						T _type;
-						
-					public:
-						iterator(T member): _type(member){}					
-						T operator*() const
-            {
-							return _type;
-						}
-						
-						T* operator->() const
-            {
-							return &_type;
-						}
-		
-        		const iterator operator++(int)
-            {
-							iterator _cd(*this);
-							operator++();
-							return _cd;
-						}
-            
-						iterator& operator++()
-            {
-							++_type;
-							return *this;
-						}
-
-          	bool operator!=(const iterator& othercd) const
-            {
-							if(_type!=othercd._type)
-								return true;
-							return false;
-						}
-
-
-						bool operator==(const iterator& othercd) const
-            {
-							if(_type==othercd._type)
-								return true;
-							return false;
-						}
-
-					
-				};
-        
-		iterator begin()
+namespace itertools
+{
+    template <typename T>
+    class range
     {
-			return range<T>::iterator(a);
-		}
-			
-		iterator end() 
-    {
-			return range<T>::iterator(b);
-		}
-	};
+        private:
+        T _start;
+        T _end;
 
+        public:
+
+        range(T _sta, T _finish) : _start(_sta), _end(_finish) {
+
+        }
+
+        ~range(){
+
+        }
+
+        class iterator
+        {
+            private:
+            T data;
+
+            public:
+            iterator(T ptr) : data(ptr) {
+
+            }
+
+            T operator*() const {
+			    return data;
+            }
+
+            iterator& operator++() {
+                ++data;
+			    return *this;
+            }
+
+		    bool operator==(const iterator& rhs) const {
+			    return (data == rhs.data);
+		    }
+
+		    bool operator!=(const iterator& rhs) const {
+			    return (data != rhs.data);
+            }
+        };
+
+        public:
+
+        iterator begin() {
+		    return iterator(_start);
+	    }
+	
+	    iterator end() {
+		    return iterator(_end);
+        }
+
+    };
 }
