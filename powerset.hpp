@@ -1,57 +1,60 @@
 #pragma once
+
 namespace itertools
 {
     template <typename T>
     class powerset
-    {
+    {//Represents all subgroups of iterable
         private:
-        T _start;
+        T bigenN;
 
         public:
 
-        powerset(T _sta) : _start(_sta) {
-
+        powerset(T _bigen) : bigenN(_bigen) 
+	{
         }
         
         template <typename P>
         class iterator
         {
           private:
-            P data1;
-            P data2;
+            P firstIndex;
+            P lastIndex;
 
             public:
-            iterator(P ptr1, P ptr2) : data1(ptr1), data2(ptr2) {
-
+            iterator(P temp1, P temp2) : firstIndex(temp1), lastIndex(temp2) 
+	    {
             }
 
-            std::pair<decltype(*data1),decltype(*data2)> operator*() const {
-
-             return  std::pair<decltype(*data1),decltype(*data2)> (*data1 , *data2);
-            
+            std::pair<decltype(*firstIndex),decltype(*lastIndex)> operator*() const 
+	    {
+             return  std::pair<decltype(*firstIndex),decltype(*lastIndex)> (*firstIndex , *lastIndex);
             }
 
-            iterator<P>& operator++() {
+            iterator<P>& operator++()
+	    {
+	      return *this;
+	    }
 
-			    return *this;
-            }
-
-		    bool operator==(iterator<P> it) const {
-			    return false;
-		    }
-
-		    bool operator!=(iterator<P> it) const {
+            bool operator!=(iterator<P> it) const
+	    {
 			    return false;
             }
+		
+	    bool operator==(iterator<P> it) const
+	    {
+	      return false;
+	    }
+
         };
 
         public:
 
         auto begin() { 
-            return iterator<decltype(_start.begin())> (_start.begin(), _start.end()); 
+            return iterator<decltype(bigenN.begin())> (bigenN.begin(), bigenN.end()); 
         } 
         auto end()  { 
-            return iterator<decltype(_start.begin())>(_start.end(), _start.end());
+            return iterator<decltype(bigenN.begin())>(bigenN.end(), bigenN.end());
         } 
 
     };
