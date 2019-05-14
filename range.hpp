@@ -61,12 +61,12 @@ namespace itertools {
 					
 				};
         
-		iterator start()
+		iterator begin()
     {
 			return range<T>::iterator(a);
 		}
 			
-		iterator stop() 
+		iterator end() 
     {
 			return range<T>::iterator(b);
 		}
