@@ -63,14 +63,14 @@ namespace itertools
 
 		}; 
 		
-		typename zip<T1,T2>::iterator start()
+		typename zip<T1,T2>::iterator begin()
     {
-			return zip<T1,T2>::iterator(a.start(), a.stop(), b.start(), b.stop());
+			return zip<T1,T2>::iterator(a.begin(), a.end(), b.begin(), b.end());
 		}
 			
-		typename zip<T1,T2>::iterator stop()
+		typename zip<T1,T2>::iterator end()
     {
-			return zip<T1,T2>::iterator(a.stop(), a.stop(), b.stop(), b.stop());
+			return zip<T1,T2>::iterator(a.end(), a.end(), b.end(), b.end());
 		}
 
 	}; 
