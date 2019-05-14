@@ -71,14 +71,14 @@ namespace itertools
 				typename T2::iterator sStop;
 		};
 		
-		typename product<T1,T2>::iterator start()
+		typename product<T1,T2>::iterator begin()
     {
-			return product<T1,T2>::iterator(a.start(), a.stop(),b.start(),b.stop());
+			return product<T1,T2>::iterator(a.begin(), a.end(),b.begin(),b.end());
 		}
 			
-		typename product<T1,T2>::iterator stop() 
+		typename product<T1,T2>::iterator end() 
     {
-			return product<T1,T2>::iterator(a.stop(), a.stop(),b.stop(),b.stop());
+			return product<T1,T2>::iterator(a.end(), a.end(),b.end(),b.end());
 		}
 
 	}; 
